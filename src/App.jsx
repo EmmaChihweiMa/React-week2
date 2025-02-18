@@ -29,7 +29,6 @@ function App() {
     axios.post(`${BASE_URL}/v2/admin/signin`,account)
       .then((res) => {
         const {token, expired } = res.data; //加入cookie
-        console.log(true);
         document.cookie =`maToken={token}; expires=${new Date(expired)}`;
 
         axios.defaults.headers.common['Authorization'] = token;
